@@ -1,0 +1,24 @@
+
+There are two data formats used by the scripts:
+data.csv -- the original data file, a csv file downloaded from Google Sheets.
+series.csv -- an ordered sequence of every event with a specific YYYY-MM-DD time. Some events only have months or years. They are not included here. This is generated from data.csv by mkseries.csv
+times.csv -- a sequence of all the times of day, generated from data.csv by mktimes.sh.
+The data files are in the Data subdirectory.
+
+== Scripts for generating data ==
+
+As mentioned above, mktimes.sh and mkseries.sh generate, respectively, time of day and date data from data.csv.
+
+== Scripts for generating plots ==
+
+months_since.py: calculates a bar chart of the event counts per month since Jan 2020. How to execute:
+>>> python3 months_since.py series.csv 'Events per Month Since Jan 2020'
+
+heatmap.py: generates a heatmap of the events with specific dates. Execute: >>> python3 heatmap.py series.csv 'Heatmap of Events'
+
+time-dist.py: generates a bar plot of all the times of day. It reads from times.csv. Execute: >>> python3 time-dist.py
+
+days.py: generates a plot of all the events by day of the week. Execute: >>> python3 time-dist.py data.csv 'Distribution of events by Time of Day'
+
+
+
